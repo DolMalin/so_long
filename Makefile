@@ -32,6 +32,7 @@ GRAPHIC_HANDLING =	\
 ACTION =			\
 					update_user_pos.c\
 					exec_action.c\
+					exec_move.c\
 					move.c
 
 FILES =				\

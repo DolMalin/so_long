@@ -6,7 +6,7 @@
 /*   By: pdal-mol <dolmalinn@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:00:19 by pdal-mol          #+#    #+#             */
-/*   Updated: 2022/03/01 15:10:22 by pdal-mol         ###   ########.fr       */
+/*   Updated: 2022/03/02 15:45:53 by pdal-mol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_data
 	int		mv_count;
 	int		c_count;
 	int		cmax_count;
+	t_bool	on_exit;
 }			t_data;
 
 /* ============== ~ MAP CONFIG ~ ============== */
@@ -90,10 +91,12 @@ void	run_game(t_data *data, t_img *img);
 
 /* ============== ~ ACTION ~ ============== */
 void	update_user_pos(t_data **data);
+void	print_move(int nb);
 void	move_up(t_data **data);
 void	move_down(t_data **data);
 void	move_left(t_data **data);
 void	move_right(t_data **data);
 int		exec_action(int key, t_data *data);
+void	exec_move(t_data **data, char *player_pos, char *dest_pos);
 
 #endif

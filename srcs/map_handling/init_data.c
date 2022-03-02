@@ -6,7 +6,7 @@
 /*   By: pdal-mol <dolmalinn@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 13:20:10 by pdal-mol          #+#    #+#             */
-/*   Updated: 2022/03/01 13:22:17 by pdal-mol         ###   ########.fr       */
+/*   Updated: 2022/03/02 13:21:03 by pdal-mol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,6 @@ t_data	*init_data(char **av)
 	output->x_max = ft_strlen(data->map[0]);
 	output->y_max = get_ymax(data->map);
 	output->cmax_count = cmax_count(data);
+	output->on_exit = false;
 	return (output);
 }

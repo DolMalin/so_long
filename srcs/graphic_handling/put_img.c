@@ -6,7 +6,7 @@
 /*   By: pdal-mol <dolmalinn@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 13:43:24 by pdal-mol          #+#    #+#             */
-/*   Updated: 2022/03/01 16:02:11 by pdal-mol         ###   ########.fr       */
+/*   Updated: 2022/03/02 15:39:07 by pdal-mol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	put_img(t_data *data, t_img *img, void **mlx, void **mlx_win)
 	size_t	j;
 	size_t	x;
 	size_t	y;
-	void	*temp;
+	void	*t;
 
 	update_user_pos(&data);
 	i = 0;
@@ -49,12 +49,14 @@ void	put_img(t_data *data, t_img *img, void **mlx, void **mlx_win)
 		j = 0;
 		while (j < WIDTH && j < data->x_max)
 		{
-			temp = img->empty;
-			mlx_put_image_to_window(*mlx, *mlx_win, temp, j * 100, i * 100);
 			y = get_camy(data) + i;
 			x = get_camx(data) + j;
-			temp = get_img(data->map[y][x], img);
-			mlx_put_image_to_window(*mlx, *mlx_win, temp, j * 100, i * 100);
+			t = img->empty;
+			if (data->map[y][x] == 'P' && data->on_exit)
+				t = img->exit;
+			mlx_put_image_to_window(*mlx, *mlx_win, t, j * 100, i * 100);
+			t = get_img(data->map[y][x], img);
+			mlx_put_image_to_window(*mlx, *mlx_win, t, j * 100, i * 100);
 			j++;
 		}
 		i++;

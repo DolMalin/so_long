@@ -6,7 +6,7 @@
 /*   By: pdal-mol <dolmalinn@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 13:28:42 by pdal-mol          #+#    #+#             */
-/*   Updated: 2022/03/01 13:30:25 by pdal-mol         ###   ########.fr       */
+/*   Updated: 2022/03/02 15:31:15 by pdal-mol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,11 +99,11 @@ static t_bool	check_map_is_rectangular(t_data *data)
 void	check_map(t_data *data)
 {
 	if (!check_map_only_chars(data, "01CEP"))
-		puterr_exit("Map contains unvalid chars\n");
+		puterr_exit("Map contains unvalid chars");
 	else if (!check_map_all_chars(data, "1CEP"))
-		puterr_exit("Map do not contains all the required chars\n");
+		puterr_exit("Map do not contains all the required chars");
 	else if (!check_map_border(data))
-		puterr_exit("Unvalid map border\n");
+		puterr_exit("Unvalid map border");
 	else if (!check_map_is_rectangular(data))
-		puterr_exit("Map is not rectangular\n");
+		puterr_exit("Map is not rectangular");
 }
